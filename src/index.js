@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-export default function(enter,cr){
-	if(typeof window['define'] === "function"){
+export default function(enter,cr,single){
+	if(!single && typeof window['define'] === "function"){
 	    window['define']([],function(){
 	        return function(param,pr){
 	        	if(pr.store && cr.reducers ){

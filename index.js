@@ -6,8 +6,8 @@ Object.defineProperty(exports, "__esModule", {
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-exports.default = function (enter, cr) {
-			if (typeof window['define'] === "function") {
+exports.default = function (enter, cr, single) {
+			if (!single && typeof window['define'] === "function") {
 						window['define']([], function () {
 									return function (param, pr) {
 												if (pr.store && cr.reducers) {
