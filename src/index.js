@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 export default function(enter,cr,single){
 	if(!single && typeof window['define'] === "function"){
 	    window['define']([],function(){
-	        return function(param,pr){
+	        return function(param,pr, sessionName){
 	        	if(pr.store && cr.reducers ){
 	        		pr.store.replaceReducer(combineReducers({
 						...(pr.reducers||{}),
@@ -15,10 +15,10 @@ export default function(enter,cr,single){
 				}else{
 	        		cr.actions = pr.actions || cr.actions || {};
 				}
-				enter(param, cr);
+				enter(param, cr, sessionName);
 			}
 	    });
 	}else {
-	    enter(null,cr || {});
+	    enter({},cr || {});
 	}
 }
