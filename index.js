@@ -19,6 +19,7 @@ exports.default = function (enter, cr) {
 												} else {
 															cr.actions = pr.actions || cr.actions || {};
 												}
+												cr = Object.assign(cr, pr);
 												enter(param, cr);
 									};
 						});
