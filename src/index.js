@@ -8,15 +8,13 @@ export default function(enter,cr,single){
 						...(pr.reducers||{}),
 						...cr.reducers
 					}));
-	        		cr.store = pr.store;
 				}
 				if(pr.actions && cr.actions){
-	        		cr.actions = Object.assign(pr.actions,or.actions);
+	        		Object.assign(pr.actions,or.actions);
 				}else{
-	        		cr.actions = pr.actions || cr.actions || {};
+	        		pr.actions = pr.actions || cr.actions || {};
 				}
-				cr = Object.assign(cr, pr);
-				enter(param, cr, sessionName);
+				enter(param, Object.assign({}, cr, pr), sessionName);
 			}
 	    });
 	}else {
